@@ -16,7 +16,7 @@ const Home = () => {
 					<Link href='/'> Suporte </Link>
 					<Link href='/login'> Entrar </Link>
 					<Button 
-						style={{ width: '305px', height: '58px' }}
+						style={{ width: '220px', height: '50px' }}
 						onClick={() => {
 							history.push('/cadastro');
 						}}
@@ -28,10 +28,10 @@ const Home = () => {
 
 			<Body>
 				<Title>
-					Imagine tudo em um único lugar
+					Imagine tudo <br/>em um único lugar
 				</Title>
 				<Subtitle>
-					Colig.io ajuda instituições de ensino a centralizar suas atividades em uma única plataforma
+					Colig.io ajuda instituições de ensino a centralizar <br /> suas atividades em uma única plataforma
 				</Subtitle>
 				<Button 
 					style={{ width: '390px', height: '50px' }}
