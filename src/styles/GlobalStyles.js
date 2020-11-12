@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
+import { FredokaOne } from './Fonts';
 
 export default createGlobalStyle`
+
+    ${FredokaOne}
+        body {
+            font: 1rem Fredoka, sans-serif;
+        }
+        
     * {
         margin: 0;
         padding: 0;
