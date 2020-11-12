@@ -9,7 +9,6 @@ export const ButtonContainer = styled.button`
 	color: ${props => props.color || "#FFF"};
 	font-size: ${props => props.fontSize || "24px"};
 	border-radius: ${props => props.borderRadius || "15px"};
-	border-color: #51AFB9;
 	border: none;
 	
 `;
