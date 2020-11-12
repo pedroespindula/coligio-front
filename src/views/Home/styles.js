@@ -21,7 +21,7 @@ export const LinksContainer = styled.div`
 	justify-content: space-between;
 `;
 
-export const Links = styled.a`
+export const Link = styled.a`
 	text-decoration: none;
 	font-size: 24px;
 	font-family: 'Rubik', sans-serif;
