@@ -7,6 +7,7 @@ export const ButtonContainer = styled.button`
 	background-color: ${props => props.background || "#51AFB9"};
 	color: ${props => props.color || "#FFF"};
 	font-size: ${props => props.fontSize || "24px"};
-	border-radius: ${props => props.borderRadius || "15px"};
+	border-radius: ${props => props.borderRadius || "12px"};
 	border: none;
+	align-self: center;
 `;
