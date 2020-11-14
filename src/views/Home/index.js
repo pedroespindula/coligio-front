@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { HomeContainer, Header, Logo, LinksContainer, Link, Body, Title, Subtitle } from './styles';
 
 import Button from '../../components/Button';
+import Modal from '../../components/Modal';
+import LoginPage from '../Login';
 
 const Home = () => {
     const history = useHistory();
+
+    const [isLoginModalOpened, setIsLoginModalOpened] = useState(false);
+    const [isRegisterModalOpened, setIsRegisterModalOpened] = useState(false);
 
     return (
         <HomeContainer>
@@ -13,11 +18,11 @@ const Home = () => {
                 <Logo> colig.io </Logo>
                 <LinksContainer>
                     <Link href="/"> Suporte </Link>
-                    <Link href="/login"> Entrar </Link>
+                    <Link onClick={() => setIsLoginModalOpened(true)}> Entrar </Link>
                     <Button
                         style={{ width: '220px', height: '50px' }}
                         onClick={() => {
-                            history.push('/cadastro');
+                            setIsRegisterModalOpened(true);
                         }}
                     >
                         Comece aqui
@@ -37,12 +42,24 @@ const Home = () => {
                 <Button
                     style={{ width: '390px', height: '50px' }}
                     onClick={() => {
-                        history.push('/cadastro');
+                        setIsRegisterModalOpened(true);
                     }}
                 >
                     Experimente gratuitamente
                 </Button>
             </Body>
+
+            {isLoginModalOpened ? (
+                <Modal onClose={() => setIsLoginModalOpened(false)}>
+                    <LoginPage />
+                </Modal>
+            ) : null}
+
+            {isRegisterModalOpened ? (
+                <Modal onClose={() => setIsRegisterModalOpened(false)}>
+                    <h1>MODAL REGISTER</h1>
+                </Modal>
+            ) : null}
         </HomeContainer>
     );
 };

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
     * {
@@ -21,10 +21,18 @@ export default createGlobalStyle`
     :root {
         --primary: #51AFB9;
 
-        --background: #E5E5E5;
+        --background: #F8F8F8;
 
         --primary-black: #000;
         --secondary-black: #111;
+        --gray: #8E8E8E;
         --red: #BB3737;
     }
+`;
+
+export const MainContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--background);
 `;
