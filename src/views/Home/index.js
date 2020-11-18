@@ -5,6 +5,7 @@ import { HomeContainer, Header, Logo, LinksContainer, Link, Body, Title, Subtitl
 import Button from '../../components/Button';
 import Modal from '../../components/Modal';
 import LoginPage from '../Login';
+import RegisterPage from '../Register';
 
 const Home = () => {
     const history = useHistory();
@@ -57,7 +58,7 @@ const Home = () => {
 
             {isRegisterModalOpened ? (
                 <Modal onClose={() => setIsRegisterModalOpened(false)}>
-                    <h1>MODAL REGISTER</h1>
+                    <RegisterPage />
                 </Modal>
             ) : null}
         </HomeContainer>
