@@ -8,8 +8,7 @@ import Radio from '../../components/Radio';
 import { CheckBoxContainer } from './styles';
 
 const RegisterPage = () => {
-
-	const [typeUser, setTypeUser] = useState(true);
+    const [typeUser, setTypeUser] = useState(true);
 
     return (
         <Fields>
@@ -21,26 +20,30 @@ const RegisterPage = () => {
             <span>ou</span>
             <Input placeholder="Nome Completo" />
             <Input placeholder="E-mail" />
-						<Input placeholder="Senha" />
-						<Input placeholder="Confirmação de senha" />
+            <Input placeholder="Senha" />
+            <Input placeholder="Confirmação de senha" />
 
-						<CheckBoxContainer>
-							<Radio
-								label="Professor"
-								value={typeUser}
-								changed={() => {
-									setTypeUser(!typeUser)
-								}} />
+            <CheckBoxContainer>
+                <Radio
+                    label="Professor"
+                    value={typeUser}
+                    changed={() => {
+                        setTypeUser(!typeUser);
+                    }}
+                />
 
-								<Radio
-									label="Aluno"
-									value={!typeUser}
-									changed={() => {
-										setTypeUser(!typeUser)
-									}} />							
-						</CheckBoxContainer>
+                <Radio
+                    label="Aluno"
+                    value={!typeUser}
+                    changed={() => {
+                        setTypeUser(!typeUser);
+                    }}
+                />
+            </CheckBoxContainer>
 
-            <Button style={{ width: "100%", background: "#000", fontSize: "20px", height: "50px" }}>Criar conta</Button>
+            <Button style={{ width: '100%', background: '#000', fontSize: '20px', height: '50px' }}>
+                Criar conta
+            </Button>
         </Fields>
     );
 };
