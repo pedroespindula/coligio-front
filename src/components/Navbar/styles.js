@@ -1,47 +1,84 @@
 import styled from 'styled-components';
 
 export const NavbarContainer = styled.div`
-	width: 20%;
-	border-right: 2px solid #C4C4C4;
-	height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    width: 20%;
+    height: 100%;
+
+    max-width: 400px;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
 `;
 
 export const NameContainer = styled.div`
-	font-size: 18px;
-	font-family: 'Rubik', sans-serif;
-	font-weight: 300;
-	display: flex;
-	justify-content: space-between;
-	padding: 10px;
-	border-bottom: 2px solid #C4C4C4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    padding: 10px 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+`;
+
+export const UserData = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    > span {
+        margin-left: 12px;
+    }
+`;
+
+export const UserIcon = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background-color: var(--primary);
+
+    color: var(--background);
 `;
 
 export const OptionsContainer = styled.div`
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: hidden;
 `;
 
 export const LinkNavbar = styled.a`
-	text-decoration: none;
-	font-size: 16px;
-	font-family: 'Rubik', sans-serif;
-	padding: 15px;
-	font-weight: 300;
-	color: #000;
+    padding: 8px 18px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    color: #000;
 
-	:hover {
-		background-color: #D6EDEF;
-	}
+    :active {
+        background-color: #d6edef;
+    }
+
+    :hover {
+        background-color: #d6edef;
+    }
 `;
 
 export const LogOut = styled.div`
-	width: 80%;
-	border-top: 2px solid #C4C4C4;
-	font-size: 18px;
-	font-family: 'Rubik', sans-serif;
-	padding: 30px;
-	font-weight: 300;
-	display: flex;
-	justify-content: center;
+    width: 80%;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    padding: 30px;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
 `;
