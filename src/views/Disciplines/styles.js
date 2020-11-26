@@ -33,3 +33,24 @@ export const DisciplinesContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 `;
+
+export const InputsContainer = styled.div`
+    padding: 20px;
+
+    width: 97%;
+
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const InputSearch = styled.input`
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    
+    height: 50px;
+    width: 40%;
+
+    font-size: 14px;
+    padding: 5px;
+
+`;
