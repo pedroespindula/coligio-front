@@ -21,3 +21,15 @@ export const Title = styled.div`
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 `;
+
+export const ContentPage = styled.div`
+    display: flex; 
+    flex-direction: column;
+`;
+
+export const DisciplinesContainer = styled.div`
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+`;

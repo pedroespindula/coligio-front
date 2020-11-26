@@ -4,12 +4,13 @@ import { CardContainer, HeaderCard, Name, IconContainer, ContentContainer, Infor
 import { BsGearFill } from 'react-icons/bs';
 
 const DisciplineCard = ({ name, schedule, teacher }) => {
+
 	return(
 		<CardContainer>
 
 			<HeaderCard>
 				<Name>
-					Matemática
+					{ name }
 				</Name>
 
 				<IconContainer>
@@ -20,18 +21,16 @@ const DisciplineCard = ({ name, schedule, teacher }) => {
 
 			<ContentContainer>
 				<InformationPosition>
-					<Information>
-						seg 08:00~10:00
-					</Information>
-
-					<Information>
-						qua 08:00~10:00
-					</Information>
+					{
+						schedule.map((s, index) => {
+							return <Information key={index}> {s} </Information>
+						})
+					}
 				</InformationPosition>
 
 				<InformationPosition>
 					<Information>
-						Prof. José da Silva
+						{teacher}
 					</Information>
 				</InformationPosition>
 			</ContentContainer>

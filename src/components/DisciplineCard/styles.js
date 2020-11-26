@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div`
 	border: 1px solid rgba(0, 0, 0, 0.3);
-	width: 30%;
-	height: 30%;
+	width: 80%;
+	height: 75%;
 	border-radius: 10px;
+	margin: 30px;
 `;
 
 export const HeaderCard = styled.div`

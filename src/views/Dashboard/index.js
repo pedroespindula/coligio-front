@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
-import { DashboardContainer, Title } from './styles';
+import { DashboardContainer, Title, ContentPage, DisciplinesContainer } from './styles';
 import Navbar from '../../components/Navbar';
 import DisciplineCard from '../../components/DisciplineCard';
 
@@ -17,7 +17,8 @@ const Dashboard = () => {
         { name: 'Matemática', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. João Assis'},
         { name: 'Inglês', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. Maria Julia'},
         { name: 'Português', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. Marcio Roberto'},
-        { name: 'História', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. Ana Carolina'}
+        { name: 'História', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. Ana Carolina'},
+        { name: 'Geografia', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. Ana Carolina'}
     ];
 
     return (
@@ -28,17 +29,21 @@ const Dashboard = () => {
                     userName="Talita Galdino"
                     options={options}
                 />
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                <Title>
-                    Minhas Disciplinas
-                </Title>
-                {
-                    disciplines.map((discipline) => {
-                        <DisciplineCard name={discipline.name} schedule={discipline.schedule} teacher={discipline.teacher} />
-                    })
-                }
-                <DisciplineCard />
-                </div>
+                <ContentPage>
+
+                    <Title>
+                        Minhas Disciplinas
+                    </Title>
+
+                    <DisciplinesContainer>
+                        {
+                            disciplines.map((discipline) => {
+                                return <DisciplineCard key={discipline.name} name={discipline.name} schedule={discipline.schedule} teacher={discipline.teacher} />
+                            })
+                        }
+                    </DisciplinesContainer>
+                    
+                </ContentPage>
             </DashboardContainer>
         </>
     );
