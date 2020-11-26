@@ -18,6 +18,8 @@ export default createGlobalStyle`
         font-family: 'Rubik', sans-serif;
     }
 
+    
+
     :root {
         --primary: #51AFB9;
 

@@ -28,4 +28,36 @@ export const ContentContainer = styled.div`
 	margin-left: 5%;
 
 	overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: #F8F8F8;
+      margin: 5px 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #C3C3C3;
+      border-radius: 10px;
+      border: 4px solid var(--foreground-default);
+    }
+
+    &::-webkit-scrollbar-button {
+      background: #FFF;
+      border-style: solid;
+      height: 14px;
+      width: 14px;
+			
+			&:vertical:decrement {
+        border-width: 0 7px 10px 7px;
+        border-color: transparent;
+        border-bottom-color: var(--primary-black);
+      }
+				&:vertical:increment {
+        border-width: 10px 7px 0 7px;
+        border-color: transparent;
+        border-top-color: var(--foreground-tertiary);
+      }
+		}
 `;
