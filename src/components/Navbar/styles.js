@@ -20,7 +20,6 @@ export const NameContainer = styled.div`
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
     padding: 10px 18px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 `;
 
 export const UserData = styled.div`
