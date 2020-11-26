@@ -23,8 +23,14 @@ export const Name = styled.h3`
 	font-weight: 300;
 	font-family: 'Rubik', sans-serif;
 
+	text-decoration: none;
+
 	color: #FFF;
 	padding: 10px;
+
+	:hover{
+		font-weight: 500;
+	}
 `;
 
 export const IconContainer = styled.div`

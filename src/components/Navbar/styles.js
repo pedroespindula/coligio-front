@@ -37,8 +37,8 @@ export const UserIcon = styled.div`
     align-items: center;
     justify-content: center;
 
-    width: 28px;
-    height: 28px;
+    width: ${props => props.width || '28px'};
+    height: ${props => props.width || '28px'};
 
     border-radius: 50%;
 
