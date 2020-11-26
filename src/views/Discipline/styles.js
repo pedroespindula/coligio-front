@@ -26,4 +26,6 @@ export const Tab = styled.h3`
 export const ContentContainer = styled.div`
 	width: 85%;
 	margin-left: 5%;
+
+	overflow-y: scroll;
 `;
