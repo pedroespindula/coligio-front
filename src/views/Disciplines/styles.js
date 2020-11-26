@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DashboardContainer = styled.div`
+export const Container = styled.div`
     display: flex;
 
     width: 100%;

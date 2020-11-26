@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../../components/Header';
-import { DashboardContainer, Title, ContentPage, DisciplinesContainer } from './styles';
+import { Container, Title, ContentPage, DisciplinesContainer } from './styles';
 import Navbar from '../../components/Navbar';
 import DisciplineCard from '../../components/DisciplineCard';
 
-const Dashboard = () => {
+const Disciplines = () => {
 
     const options = [
         { name: 'Disciplinas', href: '/disciplinas' },
@@ -24,7 +24,7 @@ const Dashboard = () => {
     return (
         <>
             <Header />
-            <DashboardContainer>
+            <Container>
                 <Navbar
                     userName="Talita Galdino"
                     options={options}
@@ -44,9 +44,9 @@ const Dashboard = () => {
                     </DisciplinesContainer>
                     
                 </ContentPage>
-            </DashboardContainer>
+            </Container>
         </>
     );
 };
 
-export default Dashboard;
+export default Disciplines;
