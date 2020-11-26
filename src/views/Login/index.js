@@ -11,8 +11,8 @@ const LoginPage = () => {
             </GoogleButton>
 
             <span>ou</span>
-            <Input placeholder="E-mail" />
-            <Input placeholder="Senha" />
+            <Input placeholder="E-mail" data-cy="login-email" />
+            <Input placeholder="Senha" data-cy="login-password" />
 
             <Button>Entrar</Button>
         </Fields>
