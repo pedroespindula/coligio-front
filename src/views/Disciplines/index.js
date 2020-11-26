@@ -58,13 +58,6 @@ const Disciplines = () => {
                                 onClick={() => setNewDisciplineOpened(true)}
                             >
 
-                            {
-                                isNewDisciplineOpened ? (
-                                    <Modal onClose={() => setNewDisciplineOpened(false)}>
-                                        <RegisterStudentDiscipline />
-                                    </Modal>
-                                ) : null
-                            }
 
                             <GrAdd />
                         </Button>
@@ -79,6 +72,13 @@ const Disciplines = () => {
                     </DisciplinesContainer>
                     
                 </ContentPage>
+                {
+                    isNewDisciplineOpened ? (
+                        <Modal onClose={() => setNewDisciplineOpened(false)}>
+                            <RegisterStudentDiscipline />
+                        </Modal>
+                    ) : null
+                }
             </Container>
         </>
     );
