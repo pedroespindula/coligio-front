@@ -52,6 +52,9 @@ export const OptionsContainer = styled.div`
     display: flex;
     flex-direction: column;
 
+    height: 100%;
+    padding: 15px 0;
+
     overflow-y: hidden;
 `;
 
@@ -74,11 +77,16 @@ export const LinkNavbar = styled.a`
 
 export const LogOut = styled.div`
     width: 80%;
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
     font-size: 18px;
     font-family: 'Rubik', sans-serif;
     padding: 30px;
     font-weight: 300;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+`;
+
+export const LogOutPosition = styled.div`
     display: flex;
     justify-content: center;
 `;

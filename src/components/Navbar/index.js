@@ -6,7 +6,8 @@ import {
     UserIcon,
     OptionsContainer,
     LinkNavbar,
-    LogOut
+    LogOut,
+    LogOutPosition
 } from './styles';
 import { AiOutlineBell } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
@@ -27,13 +28,16 @@ const Navbar = ({ userName, options }) => {
             </NameContainer>
             <OptionsContainer>
                 {options.map((option) => {
-                    return <Option name={option.name} href={option.href} />;
+                    return <Option key={option.href} name={option.name} href={option.href} />;
                 })}
             </OptionsContainer>
-            <LogOut>
-                <FiLogOut />
-                Sair
-            </LogOut>
+            <LogOutPosition>
+                <LogOut>
+                    <FiLogOut />
+                    Sair
+                </LogOut>
+
+            </LogOutPosition>
         </NavbarContainer>
     );
 };
