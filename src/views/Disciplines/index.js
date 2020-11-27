@@ -10,6 +10,7 @@ import Modal from '../../components/Modal';
 import RegisterStudentDiscipline from '../../components/RegisterStudentDiscipline';
 import DisciplineCard from '../../components/DisciplineCard';
 import RegisterActivitie from '../../components/RegisterActivitie';
+import RegisterClass from '../../components/RegisterClass';
 
 const Disciplines = () => {
     const cargo = 'professor';
@@ -130,7 +131,11 @@ const Disciplines = () => {
                             })}
                         </DisciplinesContainer>
                     </ContentPage>
-                    {isNewClassOpened ? <Modal onClose={() => setNewClassOpened(false)}>oioi</Modal> : null}
+                    {isNewClassOpened ? (
+                        <Modal onClose={() => setNewClassOpened(false)}>
+                            <RegisterClass />
+                        </Modal>
+                    ) : null}
                     {isNewActivityOpened ? (
                         <Modal onClose={() => setNewActivityOpened(false)}>
                             <RegisterActivitie />
