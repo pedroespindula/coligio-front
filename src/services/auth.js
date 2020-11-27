@@ -1,20 +1,7 @@
-import { serverURL } from '../util/constants';
+export const getUser = () => {
+    return JSON.parse(localStorage.getItem("usuario"));
+}
 
-export function login(data) {
-    const route = `/usuario/login`;
-
-    fetch(serverURL + route, {
-        method: 'POST',
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json; charset=utf-8'
-        },
-        body: JSON.stringify(data)
-    })
-        .then((res) => {
-            if (res.ok) {
-                alert('Login feito com sucesso');
-            }
-        })
-        .catch((err) => alert(err));
+export const getToken = () => {
+    return localStorage.getItem("token");
 }

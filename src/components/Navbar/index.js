@@ -9,13 +9,25 @@ import {
     LogOut,
     LogOutPosition
 } from './styles';
+
+import { useHistory } from 'react-router-dom';
+
 import { AiOutlineBell } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
 
-const Navbar = ({ userName, options }) => {
+const Navbar = ({ userName = '', options }) => {
+    const history = useHistory();
+
     const Option = ({ name, href }) => {
         return <LinkNavbar href={href}>{name}</LinkNavbar>;
     };
+
+    const logout = () => {
+        localStorage.removeItem("token")
+        localStorage.removeItem("usuario")
+
+        history.push('/');
+    }
 
     return (
         <NavbarContainer>
@@ -32,7 +44,7 @@ const Navbar = ({ userName, options }) => {
                 })}
             </OptionsContainer>
             <LogOutPosition>
-                <LogOut>
+                <LogOut onClick={logout}>
                     <FiLogOut />
                     Sair
                 </LogOut>

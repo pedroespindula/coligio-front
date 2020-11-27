@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import background from '../../assets/icons/google-icon.png';
 
-export const Fields = styled.div`
+export const Fields = styled.form`
     display: flex;
     flex-direction: column;
 
@@ -66,7 +66,7 @@ export const Input = styled.input`
     background-color: var(--background);
 `;
 
-export const Button = styled.button`
+export const Button = styled.input`
     width: 100%;
     height: 50px;
 

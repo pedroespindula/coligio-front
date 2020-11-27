@@ -14,3 +14,12 @@ export const Title = styled.span`
     margin-left: 2%;
     font-family: 'Fredoka One', sans-serif;
 `;
+
+export const Link = styled.a`
+    text-decoration: none;
+
+    :hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+`

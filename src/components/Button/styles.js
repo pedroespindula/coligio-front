@@ -10,4 +10,8 @@ export const ButtonContainer = styled.button`
     border-radius: ${(props) => props.borderRadius || '12px'};
     border: ${(props) => props.border || 'none'};
     align-self: center;
+
+    :hover {
+        cursor: pointer;
+    }
 `;

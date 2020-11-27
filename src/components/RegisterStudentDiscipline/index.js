@@ -4,11 +4,15 @@ import { Fields, Input } from '../../views/Login/styles';
 import { Title, InputsContainer } from './styles';
 import Button from '../../components/Button';
 
+import { matricular } from '../../services/disciplina'
+
 const RegisterStudentDiscipline = () => {
 	const [disciplineCode, setDisciplineCode] = useState('');
-	const [email, setEmail] = useState('');
 	
-	console.log(email, disciplineCode);
+    const handleMatricular = async () => {
+        const result = await matricular(disciplineCode)
+        console.log(result.data)
+    }
 
 	return (
 		<Fields>
@@ -21,11 +25,6 @@ const RegisterStudentDiscipline = () => {
 							 onChange={(e) => {
 								 setDisciplineCode(e.target.value)
 							 }} />
-				<Input value={email} 
-							 placeholder='Email'
-							 onChange={(e) => {
-								 setEmail(e.target.value)
-							 }} />
 			</InputsContainer>
 
 			<Button 
@@ -33,6 +32,7 @@ const RegisterStudentDiscipline = () => {
 								 background: '#000',
 								 fontSize: '20px',
 								 height: '50px' }}
+        onClick={handleMatricular}
 				>
 				Participar
 			</Button>

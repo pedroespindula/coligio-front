@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import { Container, Title, ContentPage, InputsContainer, DisciplinesContainer, InputSearch } from './styles';
 
@@ -12,8 +12,18 @@ import DisciplineCard from '../../components/DisciplineCard';
 import RegisterActivitie from '../../components/RegisterActivitie';
 import RegisterClass from '../../components/RegisterClass';
 
+import { getUser } from '../../services/auth'
+
 const Disciplines = () => {
-    const cargo = 'professor';
+    const { cargo, nome } = getUser();
+    const [disciplinas, setDisciplinas] = useState();
+    // const [disciplines, setDisciplines] = useState([]);
+
+    useEffect(() => {
+        async function fetchDisciplinas() {
+
+        }
+    })
 
     const optionsStudent = [
         { name: 'Disciplinas', href: '/disciplinas' },
@@ -45,7 +55,7 @@ const Disciplines = () => {
             <>
                 <Header />
                 <Container>
-                    <Navbar userName="Talita Galdino" options={optionsStudent} />
+                    <Navbar userName={nome} options={optionsStudent} />
                     <ContentPage>
                         <Title>Minhas Disciplinas</Title>
 
@@ -91,7 +101,7 @@ const Disciplines = () => {
             <>
                 <Header />
                 <Container>
-                    <Navbar userName="Professor Rohit" options={optionsTeacher} />
+                    <Navbar userName={"Prof. " + nome} options={optionsTeacher} />
                     <ContentPage>
                         <Title>Minhas Disciplinas</Title>
 
@@ -114,7 +124,7 @@ const Disciplines = () => {
                                 }}
                                 onClick={() => setNewClassOpened(true)}
                             >
-                                Cadastrar Aula
+                                Cadastrar Disciplina
                             </Button>
                         </InputsContainer>
 

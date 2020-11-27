@@ -8,16 +8,16 @@ import { InputsContainer } from '../RegisterStudentDiscipline/styles';
 function RegisterClass() {
     return (
         <Fields>
-            <Title>Cadastrar aula</Title>
+            <Title>Cadastrar Disciplina</Title>
 
             <InputsContainer>
-                <Input placeholder="Data" type="date" />
-                <Input placeholder="Horário" />
+                <Input placeholder="Nome" />
                 <TextArea placeholder="Descrição" type="textarea" />
+                <Input placeholder="Carga Horária" />
             </InputsContainer>
 
             <Button style={{ width: '100%', background: '#000', fontSize: '20px', height: '50px' }}>
-                Cadastrar aula
+                Cadastrar disciplina
             </Button>
         </Fields>
     );

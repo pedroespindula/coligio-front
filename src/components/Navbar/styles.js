@@ -84,6 +84,10 @@ export const LogOut = styled.div`
     display: flex;
     justify-content: center;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
+
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 export const LogOutPosition = styled.div`

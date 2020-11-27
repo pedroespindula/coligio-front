@@ -10,9 +10,9 @@ const RegisterActivity = () => {
             <Title>Adicionar Atividade</Title>
 
             <InputsContainer>
+                <Input placeholder="Nome" type="text" />
                 <TextArea placeholder="Descrição" type="textarea" />
-
-                <Input placeholder="Data de entrega" />
+                <Input placeholder="Data de entrega" type="date"/>
             </InputsContainer>
 
             <Button style={{ width: '100%', background: '#000', fontSize: '20px', height: '50px' }}>
