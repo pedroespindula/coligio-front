@@ -1,7 +1,7 @@
 import { serverURL } from '../util/constants';
 
-export function registerStudent(data) {
-    const route = `/usuario`;
+export function login(data) {
+    const route = `/usuario/login`;
 
     fetch(serverURL + route, {
         method: 'POST',
@@ -13,7 +13,7 @@ export function registerStudent(data) {
     })
         .then((res) => {
             if (res.ok) {
-                alert('Cadastro feito com sucesso');
+                alert('Login feito com sucesso');
             }
         })
         .catch((err) => alert(err));

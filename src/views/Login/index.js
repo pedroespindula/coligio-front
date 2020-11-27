@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { login } from '../../services/auth';
 import { Fields, GoogleButton, GoogleIcon, Input, Button } from './styles';
 
 const LoginPage = () => {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    const data = {
+        email: email,
+        senha: senha
+    };
+
     return (
         <Fields>
             <GoogleButton>
@@ -11,10 +20,16 @@ const LoginPage = () => {
             </GoogleButton>
 
             <span>ou</span>
-            <Input placeholder="E-mail" />
-            <Input placeholder="Senha" />
+            <Input placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />
+            <Input placeholder="Senha" onChange={(e) => setSenha(e.target.value)} />
 
-            <Button>Entrar</Button>
+            <Button
+                onClick={() => {
+                    login(data);
+                }}
+            >
+                Entrar
+            </Button>
         </Fields>
     );
 };
