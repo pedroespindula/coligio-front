@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Fields, GoogleButton, GoogleIcon, Input } from '../Login/styles';
 
@@ -14,6 +15,8 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [nome, setNome] = useState('');
+
+    const history = useHistory();
 
     const handleCargo = (cargo) => {
         return cargo ? 'aluno' : 'professor';
@@ -59,7 +62,10 @@ const RegisterPage = () => {
 
             <Button 
                 style={{ width: '100%', background: '#000', fontSize: '20px', height: '50px' }}
-                onClick={() => registerStudent(data)}
+                onClick={() => {
+                    registerStudent(data)
+                    history.push('/disciplinas');
+                }}
             >
                 
                 Criar conta
