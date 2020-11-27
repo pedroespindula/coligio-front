@@ -1,37 +1,25 @@
 import React from 'react';
 import { Fields, Input } from '../../views/Login/styles';
+import { Title, TextArea } from './styles';
 import Button from '../../components/Button';
-import { Title, InputsContainer } from '../RegisterStudentDiscipline/styles'
+import { InputsContainer } from '../RegisterStudentDiscipline/styles';
 
-const RegisterActivitie = () => {
-	return(
-		<Fields>
+const RegisterActivity = () => {
+    return (
+        <Fields>
+            <Title>Adicionar Atividade</Title>
 
-			<Title> Cadastrar disciplina </Title>
+            <InputsContainer>
+                <TextArea placeholder="Descrição" type="textarea" />
 
-			<InputsContainer>
-				<Input 
-						placeholder='Nome'
-				/>
-				<Input 
-						placeholder='Nome'
-				/>
-				<Input 
-						placeholder='Nome'
-				/>
-			</InputsContainer>
+                <Input placeholder="Data de entrega" />
+            </InputsContainer>
 
-			<Button 
-				style={{ width: '100%',
-								background: '#000',
-								fontSize: '20px',
-								height: '50px' }}
-				>
-				Cadastrar atividade
-			</Button>
+            <Button style={{ width: '100%', background: '#000', fontSize: '20px', height: '50px' }}>
+                Cadastrar atividade
+            </Button>
+        </Fields>
+    );
+};
 
-		</Fields>
-	);
-}
-
-export default RegisterActivitie;
+export default RegisterActivity;
