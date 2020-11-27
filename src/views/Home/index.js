@@ -19,12 +19,16 @@ const Home = () => {
                 <Logo> colig.io </Logo>
                 <LinksContainer>
                     <Link href="/"> Suporte </Link>
-                    <Link onClick={() => setIsLoginModalOpened(true)}> Entrar </Link>
+                    <Link onClick={() => setIsLoginModalOpened(true)} data-cy="login-button">
+                        {' '}
+                        Entrar{' '}
+                    </Link>
                     <Button
                         style={{ width: '220px', height: '50px' }}
                         onClick={() => {
                             setIsRegisterModalOpened(true);
                         }}
+                        data-cy="register-button"
                     >
                         Comece aqui
                     </Button>

@@ -20,8 +20,8 @@ const LoginPage = () => {
             </GoogleButton>
 
             <span>ou</span>
-            <Input placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} />
-            <Input placeholder="Senha" onChange={(e) => setSenha(e.target.value)} />
+            <Input placeholder="E-mail" data-cy="login-email" onChange={(e) => setEmail(e.target.value)} />
+            <Input placeholder="Senha" data-cy="login-password" onChange={(e) => setSenha(e.target.value)} />
 
             <Button
                 onClick={() => {
