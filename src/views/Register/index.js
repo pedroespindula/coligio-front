@@ -19,6 +19,13 @@ const RegisterPage = () => {
         return cargo ? 'aluno' : 'professor';
     }
 
+    const data = {
+        nome: nome, 
+        cargo: handleCargo(cargo),
+        email: email,
+        senha: senha
+    }
+
     return (
         <Fields>
             <GoogleButton>
@@ -52,7 +59,7 @@ const RegisterPage = () => {
 
             <Button 
                 style={{ width: '100%', background: '#000', fontSize: '20px', height: '50px' }}
-                onClick={() => registerStudent(nome, handleCargo(cargo), email, senha)}
+                onClick={() => registerStudent(data)}
             >
                 
                 Criar conta
