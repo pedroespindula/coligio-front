@@ -6,17 +6,34 @@ import { CardContainer,
 				 Information,
 				 Content } from './styles';
 
+const meses = [
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro"
+]
+
 const CardActivitieOrMessage = ({ title, date, content }) => {
+  const data = new Date(date);
+
 	return(
 		<CardContainer>
 			<Header>
 				<>
-					<UserIcon width='60px' height='60px'>{title.charAt(0)}</UserIcon>
+          <UserIcon width='60px' height='60px'>{title ? title.charAt(0) : ""}</UserIcon>
 				</>
 				<InformationsContainer>
 
 					<Information>{title}</Information>
-					<Information fontSize='12px' color='#C0C0C0'> {date} </Information>
+					<Information fontSize='12px' color='#C0C0C0'> {data.getDay()} de {meses[data.getMonth() - 1]} </Information>
 				</InformationsContainer>
 			</Header>
 

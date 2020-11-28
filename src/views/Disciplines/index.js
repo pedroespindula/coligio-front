@@ -14,48 +14,32 @@ import RegisterClass from '../../components/RegisterClass';
 
 import { getUser } from '../../services/auth'
 
+import { getAll as getDisciplinas } from '../../services/disciplina';
+
 const Disciplines = () => {
     const { cargo, nome } = getUser();
-    const [disciplinas, setDisciplinas] = useState();
-    // const [disciplines, setDisciplines] = useState([]);
+    const [disciplinas, setDisciplinas] = useState([]);
 
     useEffect(() => {
         async function fetchDisciplinas() {
+          let disciplinas = await getDisciplinas();
 
+          if (cargo == "aluno") {
+            disciplinas.data = disciplinas.data.map(d => d.disciplina)
+          }
+
+          setDisciplinas(disciplinas.data)
         }
-    })
 
-    const optionsStudent = [
-        { name: 'Disciplinas', href: '/disciplinas' },
-        { name: 'Atividades', href: '/atividades' },
-        { name: 'Notas', href: '/notas' },
-        { name: 'Aulas', href: '/aulas' }
-    ];
-
-    const optionsTeacher = [
-        {
-            name: 'Disciplinas'
-        }
-    ];
-
-    const disciplines = [
-        { name: 'Matemática', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. João Assis' },
-        { name: 'Inglês', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. Maria Julia' },
-        {
-            name: 'Português',
-            schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'],
-            teacher: 'Prof. Marcio Roberto'
-        },
-        { name: 'História', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. Ana Carolina' },
-        { name: 'Geografia', schedule: ['seg 08:00~10:00', 'qua 08:00~10:00'], teacher: 'Prof. Ana Carolina' }
-    ];
+        fetchDisciplinas()
+    }, [])
 
     const DisciplinesStudent = () => {
         return (
             <>
                 <Header />
                 <Container>
-                    <Navbar userName={nome} options={optionsStudent} />
+                    <Navbar />
                     <ContentPage>
                         <Title>Minhas Disciplinas</Title>
 
@@ -74,13 +58,14 @@ const Disciplines = () => {
                         </InputsContainer>
 
                         <DisciplinesContainer>
-                            {disciplines.map((discipline) => {
+                            {disciplinas.map((discipline) => {
                                 return (
                                     <DisciplineCard
-                                        key={discipline.name}
-                                        name={discipline.name}
-                                        schedule={discipline.schedule}
-                                        teacher={discipline.teacher}
+                                        key={discipline.id}
+                                        id={discipline.id}
+                                        name={discipline.nome}
+                                        schedule={["Carga horária: " + discipline.cargaHoraria]}
+                                        teacher={"Prof. "  + discipline.professor.nome}
                                     />
                                 );
                             })}
@@ -129,13 +114,14 @@ const Disciplines = () => {
                         </InputsContainer>
 
                         <DisciplinesContainer>
-                            {disciplines.map((discipline) => {
+                            {disciplinas.map((discipline) => {
                                 return (
                                     <DisciplineCard
-                                        key={discipline.name}
-                                        name={discipline.name}
-                                        schedule={discipline.schedule}
-                                        teacher={discipline.teacher}
+                                        key={discipline.id}
+                                        id={discipline.id}
+                                        name={discipline.nome}
+                                        schedule={["Carga horária: " + discipline.cargaHoraria]}
+                                        teacher={"Prof. "  + discipline.professor.nome}
                                     />
                                 );
                             })}

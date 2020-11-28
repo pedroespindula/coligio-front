@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Header from '../../components/Header';
 import Navbar from '../../components/Navbar';
@@ -11,26 +11,35 @@ import { Container, ContentPage, Title } from '../Disciplines/styles';
 import { IconContainer } from '../../components/DisciplineCard/styles';
 import CardActivitieOrMessage from '../../components/CardActivitieOrMessage';
 
-const Discipline = () => {
+import { getAll } from '../../services/atividade';
+import { get } from '../../services/disciplina';
 
-	const options = [
-		{ name: 'Disciplinas', href: '/disciplinas' },
-		{ name: 'Atividades', href: '/atividades' },
-		{ name: 'Notas', href: '/notas' },
-		{ name: 'Aulas', href: '/aulas' }
-	];
-
-	const activities = [
-		{ title: 'Nova atividade assíncrona', date:'Prazo: 27 de out', content:'Geometria analítica' },
-		{ title: 'Atividade de matemática', date:'Prazo: 27 de out', content:'Fazer exercícios do livro' },
-		{ title: 'Resumo de inglês', date:'Prazo: 27 de out', content:'Resumo do capítulo 10' },
-		{ title: 'Fichamento de história', date:'Prazo: 27 de out', content:'Fichamento do capítulo 13' }
-	];
+const Discipline = ({ match }) => {
+  const [activities, setActivities] = useState([]);
+  const [disciplina, setDisciplina] = useState([]);
 
 	const [openHome, setOpenHome] = useState(true);
 	const [openActivities, setOpenActivities] = useState(false);
 	const [openNotes, setOpenNotes] = useState(false);
 	const [openClasses, setOpenClasses] = useState(false);
+
+  useEffect(() => {
+    async function fetchActivities() {
+      const atividades = await getAll(match.params.id);
+
+      setActivities(atividades.data)
+      console.log(atividades.data);
+    }
+    async function fetchDisciplina() {
+      const d = await get(match.params.id);
+
+      setDisciplina(d.data)
+      console.log(d.data);
+    }
+
+    fetchActivities();
+    fetchDisciplina();
+  }, []);
 
 	const handleHome = () => {
 		setOpenHome(true);
@@ -64,15 +73,12 @@ const Discipline = () => {
 		<>
 			<Header />
 			<Container>
-				<Navbar
-					userName="Talita Galdino"
-					options={options}
-				/>
+				<Navbar />
 
 				<ContentPage>
 
 					<Title>
-						Matemática
+            { disciplina.nome }
 					</Title>
 
 					<Tabs>
@@ -89,7 +95,7 @@ const Discipline = () => {
 					{
 						openHome && (
 							activities.map((activity) => {
-								return <CardActivitieOrMessage key={activity.title} title={activity.title} date={activity.date} content={activity.content} />
+								return <CardActivitieOrMessage key={activity.nome} title={activity.nome} date={activity.dataEntrega} content={activity.descricao} />
 							})
 						)
 					}

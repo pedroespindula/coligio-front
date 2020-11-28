@@ -26,6 +26,7 @@ export const Tab = styled.h3`
 export const ContentContainer = styled.div`
 	width: 85%;
 	margin-left: 5%;
+  height: 100%;
 
 	overflow-y: scroll;
     &::-webkit-scrollbar {

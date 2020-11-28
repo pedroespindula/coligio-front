@@ -1,40 +1,42 @@
 import React from 'react';
-import { CardContainer, HeaderCard, Name, IconContainer, ContentContainer, Information, InformationPosition } from './styles';
+import { CardContainer, HeaderCard, Name, IconContainer, ContentContainer, Information, InformationPosition, Link} from './styles';
 
 import { BsGearFill } from 'react-icons/bs';
 
-const DisciplineCard = ({ name, schedule, teacher }) => {
+const DisciplineCard = ({ id, name, schedule, teacher }) => {
 
 	return(
-		<CardContainer>
+    <Link href={`/disciplina/${id}`}>
+      <CardContainer>
 
-			<HeaderCard>
-				<Name>
-					{ name }
-				</Name>
+        <HeaderCard>
+          <Name>
+            { name }
+          </Name>
 
-				<IconContainer>
-					<BsGearFill fill='#FFF' size={20}/>
-				</IconContainer>
+          <IconContainer>
+            <BsGearFill fill='#FFF' size={20}/>
+          </IconContainer>
 
-			</HeaderCard>
+        </HeaderCard>
 
-			<ContentContainer>
-				<InformationPosition>
-					{
-						schedule.map((s, index) => {
-							return <Information key={index}> {s} </Information>
-						})
-					}
-				</InformationPosition>
+        <ContentContainer>
+          <InformationPosition>
+            {
+              schedule.map((s, index) => {
+                return <Information key={index}> {s} </Information>
+              })
+            }
+          </InformationPosition>
 
-				<InformationPosition>
-					<Information>
-						{teacher}
-					</Information>
-				</InformationPosition>
-			</ContentContainer>
-		</CardContainer>
+          <InformationPosition>
+            <Information>
+              {teacher}
+            </Information>
+          </InformationPosition>
+        </ContentContainer>
+      </CardContainer>
+    </Link>
 	);
 }
 

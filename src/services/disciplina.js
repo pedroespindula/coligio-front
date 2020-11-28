@@ -13,11 +13,12 @@ const api = axios.create({
 });
 
 export const getAll = () => {
-    return api.get(ROUTE, {}, { headers: { Authorization: `Bearer ${getToken()}` } });
+  console.log(`Bearer ${getToken()}`)
+    return api.get(ROUTE, { headers: { Authorization: `Bearer ${getToken()}` } });
 };
 
 export const get = (id) => {
-  return api.get(`${ROUTE}/${id}`, {}, { headers: { Authorization: `Bearer ${getToken()}` } });
+  return api.get(`${ROUTE}/${id}`, { headers: { Authorization: `Bearer ${getToken()}` } });
 };
 
 export const post = (data) => {

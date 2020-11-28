@@ -15,12 +15,19 @@ import { useHistory } from 'react-router-dom';
 import { AiOutlineBell } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
 
-const Navbar = ({ userName = '', options }) => {
+import { getUser } from '../../services/auth'
+
+const Navbar = () => {
     const history = useHistory();
+    const userName = getUser().nome
 
     const Option = ({ name, href }) => {
         return <LinkNavbar href={href}>{name}</LinkNavbar>;
     };
+
+    const options = [
+        { name: 'Disciplinas', href: '/disciplinas' },
+    ];
 
     const logout = () => {
         localStorage.removeItem("token")

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Header from '../../components/Header';
 import Navbar from '../../components/Navbar';
@@ -11,21 +11,21 @@ import { Container, ContentPage } from '../Activities/styles';
 import { IconContainer } from '../../components/DisciplineCard/styles';
 import ActivitiesListCard from '../../components/ActivitiesListCard';
 
+import { getAll } from '../../services/atividade';
+
 const Activities = () => {
+  const [activities, setActivities] = useState([])
 
-	const options = [
-		{ name: 'Disciplinas', href: '/disciplinas' },
-		{ name: 'Atividades', href: '/atividades' },
-		{ name: 'Notas', href: '/notas' },
-		{ name: 'Aulas', href: '/aulas' }
-	];
+  useEffect(() => {
+    async function fetchActivities() {
+      const atividades = await getAll();
 
-	const activities = [
-		{ title: 'Matemática', subtitle: 'Nova atividade síncrona', date:'Prazo: 27 de out', content:'Geometria analítica' },
-		{ title: 'Matemática', subtitle: 'Nova atividade assíncrona', date:'Prazo: 27 de out', content:'Fazer exercícios do livro' },
-		{ title: 'Física', subtitle: 'Nova atividade síncrona', date:'Prazo: 27 de out', content:'Resumo do capítulo 10' },
-		{ title: 'Geografia', subtitle: 'Nova atividade assíncrona', date:'Prazo: 27 de out', content:'Fichamento do capítulo 13' }
-	];
+      setActivities(atividades.data)
+      console.log(atividades.data);
+    }
+
+    fetchActivities();
+  }, [])
 
 	const [openHome, setOpenHome] = useState(true);
 	const [openActivities, setOpenActivities] = useState(false);
@@ -64,10 +64,7 @@ const Activities = () => {
 		<>
 			<Header />
 			<Container>
-				<Navbar
-					userName="Talita Galdino"
-					options={options}
-				/>
+				<Navbar/>
 
 				<ContentPage>
 
@@ -84,8 +81,8 @@ const Activities = () => {
 					<ContentContainer>
 					{
 						openHome && (
-							activities.map((activity) => {
-								return <ActivitiesListCard key={activity.title} title={activity.title} subtitle={activity.subtitle} date={activity.date} content={activity.content} />
+              activities.map((activity) => {
+                return <ActivitiesListCard key={activity.nome} title={activity.nome} subtitle={"Nova atividade assincrona"} date={activity.dataEntrega} content={activity.descricao} />
 							})
 						)
 					}

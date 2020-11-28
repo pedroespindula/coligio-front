@@ -12,8 +12,8 @@ export default function Routes() {
             <Switch>
                 <Route path="/" exact component={HomePage} />
                 <Route path="/disciplinas" exact component={Disciplines} />
-                <Route path="/disciplina/matematica" exact component={Discipline} />
-                <Route path="/atividades" exact component={Activities} />
+                <Route path="/disciplina/:id" exact component={Discipline} />
+                {/* <Route path="/atividades" exact component={Activities} /> */}
             </Switch>
         </BrowserRouter>
     );
